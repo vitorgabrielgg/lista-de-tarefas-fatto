@@ -23,6 +23,10 @@ class TarefasService {
 
     return tarefasRepository.create(tarefasData);
   }
+
+  async getAll() {
+    return tarefasRepository.getAll();
+  }
 }
 
 export { TarefasService };

@@ -9,6 +9,12 @@ class TarefasRepository {
 
     return tarefa;
   }
+
+  async getAll() {
+    const tarefas = prisma.tarefa.findMany()
+
+    return tarefas
+  }
 }
 
 export { TarefasRepository };
