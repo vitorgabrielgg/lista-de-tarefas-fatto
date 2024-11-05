@@ -1,4 +1,5 @@
 import React from "react";
+import { Formulario } from "../Formulario";
 
 export const ListaDeTarefas = () => {
   return (
@@ -7,6 +8,9 @@ export const ListaDeTarefas = () => {
         <h1 className="text-jet font-bold text-center text-3xl border-b-orange-50">
           Lista de tarefas
         </h1>
+      </div>
+      <div className="px-5 py-8">
+        <Formulario />
       </div>
     </main>
   );
