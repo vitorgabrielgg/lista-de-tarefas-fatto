@@ -1,3 +1,5 @@
+import { ListaDeTarefas } from "@/components";
+
 export default function Home() {
-  return <div>dddd</div>;
+  return <ListaDeTarefas />;
 }

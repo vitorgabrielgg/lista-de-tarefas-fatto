@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`antialiased`}>{children}</body>
+      <body className="bg-raw_umber">{children}</body>
     </html>
   );
 }
