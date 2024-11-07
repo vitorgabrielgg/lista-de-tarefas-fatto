@@ -3,7 +3,7 @@ import prisma from "../../../../db";
 
 class TarefasRepository {
   async create(data: ITarefa) {
-    const tarefa = prisma.tarefa.create({
+    const tarefa = await prisma.tarefa.create({
       data,
     });
 
@@ -11,9 +11,9 @@ class TarefasRepository {
   }
 
   async getAll() {
-    const tarefas = prisma.tarefa.findMany()
+    const tarefas = await prisma.tarefa.findMany();
 
-    return tarefas
+    return tarefas;
   }
 }
 
