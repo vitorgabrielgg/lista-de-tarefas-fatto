@@ -4,9 +4,12 @@ import { create } from "zustand";
 type TarefasStore = {
   tarefas: ITarefaItem[];
   setTarefas: (tarefas: ITarefaItem[]) => void;
+  addTarefas: (tarefa: ITarefaItem) => void;
 };
 
 export const useTarefasStore = create<TarefasStore>((set) => ({
   tarefas: [],
   setTarefas: (tarefas) => set(() => ({ tarefas })),
+  addTarefas: (tarefa) =>
+    set((state) => ({ tarefas: [...state.tarefas, tarefa] })),
 }));
