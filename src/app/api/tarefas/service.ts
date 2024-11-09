@@ -16,12 +16,7 @@ class TarefasService {
       throw new Error("Você não pode criar duas tarefas com o mesmo nome");
     }
 
-    const tarefasData: ITarefa = {
-      ...data,
-      dataLimite: new Date(data.dataLimite),
-    };
-
-    return tarefasRepository.create(tarefasData);
+    return tarefasRepository.create(data);
   }
 
   async getAll() {

@@ -6,6 +6,7 @@ type FormViewProps = ReturnType<typeof useFormModel>;
 
 export const FormView = ({
   errors,
+  isSubmitting,
   handleSubmit,
   onSubmit,
   register,
@@ -39,7 +40,7 @@ export const FormView = ({
         />
 
         <Button className="bg-silver text-jet font-regular min-[500px]:w-5/12 hover:bg-jet hover:text-silver transition-colors">
-          Criar tarefa
+          {isSubmitting ? "Loading..." : "Criar tarefa"}
         </Button>
       </form>
     </section>
