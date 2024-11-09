@@ -1,4 +1,3 @@
-import React from "react";
 import { InputField } from "../InputField";
 import { Button } from "@/components/ui/button";
 import { useFormModel } from "./form.model";
@@ -12,11 +11,8 @@ export const FormView = ({
   register,
 }: FormViewProps) => {
   return (
-    <section className="border-b border-raw_umber pb-6">
-      <form
-        className="flex flex-col gap-4 px-5"
-        onSubmit={handleSubmit(onSubmit)}
-      >
+    <section className="pb-6 px-5 border-b border-raw_umber">
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <InputField
           label="Nome da tarefa:"
           name="nomeTarefa"

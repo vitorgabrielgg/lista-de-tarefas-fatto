@@ -24,7 +24,7 @@ export const InputField = ({
   register,
 }: InputFieldProps) => {
   return (
-    <div className="flex flex-col gap-1 relative">
+    <div className="flex flex-col gap-1">
       <label htmlFor={name} className="font-medium text-jet">
         {label}
       </label>
@@ -39,7 +39,7 @@ export const InputField = ({
         step="any"
       />
 
-      {error && <p className="text-red-700">{error.message}</p>}
+      {error && <p className="text-red-700 text-sm">{error.message}</p>}
     </div>
   );
 };

@@ -8,7 +8,7 @@ export default function Home() {
           Lista de tarefas
         </h1>
       </div>
-      <div className="py-6">
+      <div className="py-6 space-y-6">
         <Formulario />
         <ListaDeTarefas />
       </div>
