@@ -20,4 +20,10 @@ export class TarefasRequestService {
 
     return data;
   }
+
+  static async deleteTarefa(id: number) {
+    await fetch(`api/tarefas/${id}`, {
+      method: "DELETE",
+    });
+  }
 }
