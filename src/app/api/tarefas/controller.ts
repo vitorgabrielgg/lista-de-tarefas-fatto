@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { TarefasService } from "./service";
+import { IParams } from "@/@types";
 
 const tarefasService = new TarefasService();
 
@@ -14,6 +15,14 @@ class TarefasController {
     const response = await tarefasService.getAll();
 
     return NextResponse.json(response);
+  }
+
+  async deleteTarefa(req: NextRequest, { params }: IParams) {
+    const { id } = await params;
+
+    await tarefasService.deleteTask(Number(id));
+
+    return NextResponse.json("");
   }
 }
 

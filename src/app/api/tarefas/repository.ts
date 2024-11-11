@@ -15,6 +15,14 @@ class TarefasRepository {
 
     return tarefas;
   }
+
+  async deleteTarefa(id: number) {
+    await prisma.tarefa.delete({
+      where: {
+        id,
+      },
+    });
+  }
 }
 
 export { TarefasRepository };

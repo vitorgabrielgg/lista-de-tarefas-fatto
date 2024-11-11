@@ -22,6 +22,10 @@ class TarefasService {
   async getAll() {
     return tarefasRepository.getAll();
   }
+
+  async deleteTask(id: number) {
+    return tarefasRepository.deleteTarefa(id);
+  }
 }
 
 export { TarefasService };
