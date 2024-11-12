@@ -11,13 +11,14 @@ export const useFormModel = () => {
     formState: { errors, isSubmitting },
     register,
     handleSubmit,
+    reset,
   } = useForm<SchemaTarefaType>({
     resolver: zodResolver(SchemaTarefa),
   });
 
   const { createTarefa } = useListaTarefas();
 
-  const onSubmit = (data: SchemaTarefaType) => {
+  const handleCreateTarefa = (data: SchemaTarefaType) => {
     const dataTarefa = {
       nome: data.nomeTarefa,
       custo: Number(data.custoTarefa),
@@ -25,13 +26,15 @@ export const useFormModel = () => {
     };
 
     createTarefa(dataTarefa);
+    reset();
   };
 
   return {
     errors,
     isSubmitting,
     handleSubmit,
-    onSubmit,
+    handleCreateTarefa,
     register,
+    reset,
   };
 };
