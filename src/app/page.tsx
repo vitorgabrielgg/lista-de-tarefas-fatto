@@ -1,4 +1,4 @@
-import { Formulario, ListaDeTarefas } from "@/components";
+import { FormularioIncluirTarefa, ListaDeTarefas } from "@/components";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
         </h1>
       </div>
       <div className="py-6 space-y-6">
-        <Formulario />
+        <FormularioIncluirTarefa />
         <ListaDeTarefas />
       </div>
     </main>

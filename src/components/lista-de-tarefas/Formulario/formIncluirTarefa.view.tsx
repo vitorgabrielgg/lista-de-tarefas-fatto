@@ -4,16 +4,19 @@ import { useFormModel } from "./form.model";
 
 type FormViewProps = ReturnType<typeof useFormModel>;
 
-export const FormView = ({
+export const FormIncluirTarefaView = ({
   errors,
   isSubmitting,
   handleSubmit,
-  onSubmit,
+  handleCreateTarefa,
   register,
 }: FormViewProps) => {
   return (
     <section className="pb-6 px-5 border-b border-raw_umber">
-      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="flex flex-col gap-4"
+        onSubmit={handleSubmit(handleCreateTarefa)}
+      >
         <InputField
           label="Nome da tarefa:"
           name="nomeTarefa"
@@ -40,7 +43,7 @@ export const FormView = ({
         />
 
         <Button className="bg-silver text-jet font-regular min-[500px]:w-5/12 hover:bg-jet hover:text-silver transition-colors">
-          {isSubmitting ? "Loading..." : "Criar tarefa"}
+          {isSubmitting ? "Loading..." : "Incluir tarefa"}
         </Button>
       </form>
     </section>

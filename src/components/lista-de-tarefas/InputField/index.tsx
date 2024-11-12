@@ -1,5 +1,4 @@
 import { Input } from "@/components/ui/input";
-import React from "react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 
 interface InputFieldProps {
