@@ -24,7 +24,10 @@ export const useListaTarefas = () => {
 
   const editTarefa = async (id: number, data: ITarefa) => {
     await TarefasRequestService.updateTarefa(id, data);
-    updateTarefa(id, data);
+
+    if (!tarefas.filter((tarefa) => tarefa.nome === data.nome).length) {
+      updateTarefa(id, data);
+    }
   };
 
   return {
