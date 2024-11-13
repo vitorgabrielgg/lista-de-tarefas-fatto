@@ -1,4 +1,5 @@
 import { Input } from "@/components/ui/input";
+import { useEffect, useState } from "react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 
 interface InputFieldProps {
@@ -12,6 +13,7 @@ interface InputFieldProps {
     dataLimiteTarefa: string;
   }>;
   error: FieldError | undefined;
+  value?: string | number;
 }
 
 export const InputField = ({
@@ -20,8 +22,15 @@ export const InputField = ({
   name,
   placeholder,
   type,
+  value,
   register,
 }: InputFieldProps) => {
+  const [inputValue, setInputValue] = useState<string | number>();
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
+
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={name} className="font-medium text-jet">
@@ -36,6 +45,8 @@ export const InputField = ({
           type === "date" && "w-[140px]"
         }`}
         step="any"
+        onChange={(e) => setInputValue(e.target.value)}
+        value={inputValue}
       />
 
       {error && <p className="text-red-700 text-sm">{error.message}</p>}
