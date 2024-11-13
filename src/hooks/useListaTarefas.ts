@@ -4,7 +4,8 @@ import { useTarefasStore } from "@/store/useTarefasStore";
 import { useCallback } from "react";
 
 export const useListaTarefas = () => {
-  const { tarefas, addTarefas, deleteTarefa, setTarefas } = useTarefasStore();
+  const { tarefas, addTarefas, deleteTarefa, setTarefas, updateTarefa } =
+    useTarefasStore();
 
   const listTarefas = useCallback(async () => {
     const res = await TarefasRequestService.getTarefas();
@@ -21,9 +22,15 @@ export const useListaTarefas = () => {
     deleteTarefa(id);
   };
 
+  const editTarefa = async (id: number, data: ITarefa) => {
+    await TarefasRequestService.updateTarefa(id, data);
+    updateTarefa(id, data);
+  };
+
   return {
     tarefas,
     createTarefa,
+    editTarefa,
     listTarefas,
     removeTarefa,
   };
