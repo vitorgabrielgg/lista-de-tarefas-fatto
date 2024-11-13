@@ -26,4 +26,14 @@ export class TarefasRequestService {
       method: "DELETE",
     });
   }
+
+  static async updateTarefa(id: number, params: ITarefa) {
+    await fetch(`api/tarefas/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(params),
+    });
+  }
 }
