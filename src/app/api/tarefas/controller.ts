@@ -24,6 +24,15 @@ class TarefasController {
 
     return NextResponse.json("");
   }
+
+  async updateTarefa(req: NextRequest, { params }: IParams) {
+    const { id } = await params;
+    const data = await req.json();
+
+    await tarefasService.updateTarefa(Number(id), data);
+
+    return NextResponse.json("");
+  }
 }
 
 export { TarefasController };

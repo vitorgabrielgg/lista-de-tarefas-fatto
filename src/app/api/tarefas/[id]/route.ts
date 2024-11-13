@@ -7,3 +7,7 @@ const tarefasController = new TarefasController();
 export async function DELETE(req: NextRequest, { params }: IParams) {
   return tarefasController.deleteTarefa(req, { params });
 }
+
+export async function PUT(req: NextRequest, { params }: IParams) {
+  return tarefasController.updateTarefa(req, { params });
+}

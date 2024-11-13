@@ -26,6 +26,20 @@ class TarefasService {
   async deleteTask(id: number) {
     return tarefasRepository.deleteTarefa(id);
   }
+
+  async updateTarefa(id: number, data: ITarefa) {
+    const tarefaExistente = await prisma.tarefa.findFirst({
+      where: {
+        nome: data.nome,
+      },
+    });
+
+    if (tarefaExistente?.id !== id && tarefaExistente?.nome === data.nome) {
+      throw new Error("Esse nome já está sendo usado em outra tarefa");
+    }
+
+    return tarefasRepository.updateTarefa(id, data);
+  }
 }
 
 export { TarefasService };

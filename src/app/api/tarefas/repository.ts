@@ -23,6 +23,15 @@ class TarefasRepository {
       },
     });
   }
+
+  async updateTarefa(id: number, data: ITarefa) {
+    await prisma.tarefa.update({
+      where: {
+        id,
+      },
+      data,
+    });
+  }
 }
 
 export { TarefasRepository };
