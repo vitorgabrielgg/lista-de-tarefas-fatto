@@ -13,13 +13,17 @@ export const ListaDeTarefas = () => {
     setLoading(false);
   }, [listTarefas]);
 
+  const tarefasOrdenadas = tarefas.sort(
+    (a, b) => a.ordemApresentacao - b.ordemApresentacao
+  );
+
   return (
     <section className="flex flex-col gap-4 px-5">
       {loading ? (
         "Loading"
       ) : (
         <>
-          {tarefas.map((tarefa) => (
+          {tarefasOrdenadas.map((tarefa) => (
             <TarefaItem key={tarefa.id} {...tarefa} />
           ))}
         </>
