@@ -46,7 +46,7 @@ export const InputField = ({
         }`}
         step="any"
         onChange={(e) => setInputValue(e.target.value)}
-        value={inputValue}
+        value={value && inputValue}
       />
 
       {error && <p className="text-red-700 text-sm">{error.message}</p>}
