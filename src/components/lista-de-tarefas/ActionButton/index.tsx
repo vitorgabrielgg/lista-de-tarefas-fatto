@@ -9,9 +9,13 @@ interface ActionButtonProps extends ComponentProps<"button"> {
   Icon: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
 }
 
-export const ActionButton = ({ Icon, className }: ActionButtonProps) => {
+export const ActionButton = ({
+  Icon,
+  className,
+  onClick,
+}: ActionButtonProps) => {
   return (
-    <button>
+    <button onClick={onClick}>
       <Icon className={`${className}`} />
     </button>
   );

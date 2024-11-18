@@ -18,15 +18,15 @@ export const ListaDeTarefas = () => {
   );
 
   return (
-    <section className="flex flex-col gap-4 px-5">
+    <section className="px-5">
       {loading ? (
-        "Loading"
+        "Loading..."
       ) : (
-        <>
-          {tarefasOrdenadas.map((tarefa) => (
-            <TarefaItem key={tarefa.id} {...tarefa} />
+        <div className="flex flex-col gap-4">
+          {tarefasOrdenadas.map((tarefa, index) => (
+            <TarefaItem key={tarefa.id} {...tarefa} index={index} />
           ))}
-        </>
+        </div>
       )}
     </section>
   );
