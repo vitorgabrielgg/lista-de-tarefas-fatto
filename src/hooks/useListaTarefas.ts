@@ -4,8 +4,14 @@ import { useTarefasStore } from "@/store/useTarefasStore";
 import { useCallback } from "react";
 
 export const useListaTarefas = () => {
-  const { tarefas, addTarefas, deleteTarefa, setTarefas, updateTarefa } =
-    useTarefasStore();
+  const {
+    tarefas,
+    addTarefas,
+    changeOrdemApresentacaoTarefa,
+    deleteTarefa,
+    setTarefas,
+    updateTarefa,
+  } = useTarefasStore();
 
   const listTarefas = useCallback(async () => {
     const res = await TarefasRequestService.getTarefas();
@@ -30,8 +36,21 @@ export const useListaTarefas = () => {
     }
   };
 
+  const alterOrdemApresentacaoTarefa = async (
+    id: number,
+    ordemApresentacao: number
+  ) => {
+    changeOrdemApresentacaoTarefa(id, ordemApresentacao);
+
+    await TarefasRequestService.changeOrdemApresentacaoTarefa(
+      id,
+      ordemApresentacao
+    );
+  };
+
   return {
     tarefas,
+    alterOrdemApresentacaoTarefa,
     createTarefa,
     editTarefa,
     listTarefas,
