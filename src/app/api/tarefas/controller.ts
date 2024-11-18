@@ -33,6 +33,18 @@ class TarefasController {
 
     return NextResponse.json("");
   }
+
+  async changeOrdemApresentacaoTarefa(req: NextRequest, { params }: IParams) {
+    const { id } = await params;
+    const { ordemApresentacao } = await req.json();
+
+    await tarefasService.changeOrdemApresentacaoTarefa(
+      Number(id),
+      ordemApresentacao
+    );
+
+    return NextResponse.json("");
+  }
 }
 
 export { TarefasController };

@@ -11,3 +11,7 @@ export async function DELETE(req: NextRequest, { params }: IParams) {
 export async function PUT(req: NextRequest, { params }: IParams) {
   return tarefasController.updateTarefa(req, { params });
 }
+
+export async function PATCH(req: NextRequest, { params }: IParams) {
+  return tarefasController.changeOrdemApresentacaoTarefa(req, { params });
+}

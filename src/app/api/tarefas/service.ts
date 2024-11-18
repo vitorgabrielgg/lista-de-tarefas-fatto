@@ -40,6 +40,13 @@ class TarefasService {
 
     return tarefasRepository.updateTarefa(id, data);
   }
+
+  async changeOrdemApresentacaoTarefa(id: number, ordemApresentacao: number) {
+    return tarefasRepository.changeOrdemApresentacaoTarefa(
+      id,
+      ordemApresentacao
+    );
+  }
 }
 
 export { TarefasService };

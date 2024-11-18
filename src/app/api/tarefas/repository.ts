@@ -32,6 +32,17 @@ class TarefasRepository {
       data,
     });
   }
+
+  async changeOrdemApresentacaoTarefa(id: number, ordemApresentacao: number) {
+    await prisma.tarefa.update({
+      where: {
+        id,
+      },
+      data: {
+        ordemApresentacao,
+      },
+    });
+  }
 }
 
 export { TarefasRepository };
