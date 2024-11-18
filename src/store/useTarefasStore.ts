@@ -7,6 +7,10 @@ type TarefasStore = {
   addTarefas: (tarefa: ITarefaItem) => void;
   deleteTarefa: (id: number) => void;
   updateTarefa: (id: number, tarefa: ITarefa) => void;
+  changeOrdemApresentacaoTarefa: (
+    id: number,
+    ordemApresentacao: number
+  ) => void;
 };
 
 export const useTarefasStore = create<TarefasStore>((set) => ({
@@ -30,6 +34,19 @@ export const useTarefasStore = create<TarefasStore>((set) => ({
           return {
             ...tarefaState,
           };
+        }
+      }),
+    })),
+  changeOrdemApresentacaoTarefa: (id, ordemApresentacao) =>
+    set((state) => ({
+      tarefas: state.tarefas.map((tarefa) => {
+        if (tarefa.id === id) {
+          return {
+            ...tarefa,
+            ordemApresentacao,
+          };
+        } else {
+          return tarefa;
         }
       }),
     })),
