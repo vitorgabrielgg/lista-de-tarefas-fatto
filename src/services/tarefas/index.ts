@@ -36,4 +36,21 @@ export class TarefasRequestService {
       body: JSON.stringify(params),
     });
   }
+
+  static async changeOrdemApresentacaoTarefa(
+    id: number,
+    ordemApresentacao: number
+  ) {
+    const res = await fetch(`api/tarefas/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ ordemApresentacao }),
+    });
+
+    const data = await res.json();
+
+    return data;
+  }
 }
