@@ -46,7 +46,7 @@ export const TarefaItem = ({
       } rounded px-5 py-3 text-sm min-[450px]:text-base flex justify-between items-center`}
     >
       <div className="flex items-center gap-3 min-[450px]:gap-5">
-        <div className="flex flex-col gap-4 min-[450px]:gap-5">
+        <div className="flex flex-col gap-4 min-[450px]:gap-5 w-4 min-[450px]:w-5">
           {index !== 0 && (
             <ActionButton
               onClick={() => moveUpTarefa()}

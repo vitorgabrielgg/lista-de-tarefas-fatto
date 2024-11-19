@@ -16,7 +16,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 interface EditarTarefaDialogProps {
-  id: number;
+  id: string;
 }
 
 export const EditarTarefaDialog = ({ id }: EditarTarefaDialogProps) => {
@@ -44,7 +44,7 @@ export const EditarTarefaDialog = ({ id }: EditarTarefaDialogProps) => {
           id={id}
         />
         <DialogFooter className="gap-4 min-[640px]:gap-2">
-          <DialogClose className="bg-silver text-jet rounded min-[640px]:px-4 font-medium hover:bg-white transition-colors">
+          <DialogClose className="bg-silver text-jet rounded min-[640px]:px-4 py-2 text-sm font-medium hover:bg-white transition-colors">
             Cancelar
           </DialogClose>
           <Button
