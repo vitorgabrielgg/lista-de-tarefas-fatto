@@ -20,7 +20,7 @@ class TarefasController {
   async deleteTarefa(req: NextRequest, { params }: IParams) {
     const { id } = await params;
 
-    await tarefasService.deleteTask(Number(id));
+    await tarefasService.deleteTask(id);
 
     return NextResponse.json("");
   }
@@ -29,7 +29,7 @@ class TarefasController {
     const { id } = await params;
     const data = await req.json();
 
-    await tarefasService.updateTarefa(Number(id), data);
+    await tarefasService.updateTarefa(id, data);
 
     return NextResponse.json("");
   }
@@ -38,10 +38,7 @@ class TarefasController {
     const { id } = await params;
     const { ordemApresentacao } = await req.json();
 
-    await tarefasService.changeOrdemApresentacaoTarefa(
-      Number(id),
-      ordemApresentacao
-    );
+    await tarefasService.changeOrdemApresentacaoTarefa(id, ordemApresentacao);
 
     return NextResponse.json("");
   }

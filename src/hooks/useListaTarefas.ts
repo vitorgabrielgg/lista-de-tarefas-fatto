@@ -23,12 +23,12 @@ export const useListaTarefas = () => {
     addTarefas(res);
   };
 
-  const removeTarefa = async (id: number) => {
+  const removeTarefa = async (id: string) => {
     await TarefasRequestService.deleteTarefa(id);
     deleteTarefa(id);
   };
 
-  const editTarefa = async (id: number, data: ITarefa) => {
+  const editTarefa = async (id: string, data: ITarefa) => {
     await TarefasRequestService.updateTarefa(id, data);
 
     if (!tarefas.filter((tarefa) => tarefa.nome === data.nome).length) {
@@ -37,7 +37,7 @@ export const useListaTarefas = () => {
   };
 
   const alterOrdemApresentacaoTarefa = async (
-    id: number,
+    id: string,
     ordemApresentacao: number
   ) => {
     changeOrdemApresentacaoTarefa(id, ordemApresentacao);

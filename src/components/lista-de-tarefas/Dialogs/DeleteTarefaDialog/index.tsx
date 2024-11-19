@@ -15,7 +15,7 @@ import { TrashIcon } from "@radix-ui/react-icons";
 import { useListaTarefas } from "@/hooks/useListaTarefas";
 
 interface DeleteTarefaDialogProps {
-  id: number;
+  id: string;
 }
 
 export const DeleteTarefaDialog = ({ id }: DeleteTarefaDialogProps) => {

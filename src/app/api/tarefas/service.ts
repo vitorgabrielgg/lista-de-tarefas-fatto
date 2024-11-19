@@ -23,11 +23,11 @@ class TarefasService {
     return tarefasRepository.getAll();
   }
 
-  async deleteTask(id: number) {
+  async deleteTask(id: string) {
     return tarefasRepository.deleteTarefa(id);
   }
 
-  async updateTarefa(id: number, data: ITarefa) {
+  async updateTarefa(id: string, data: ITarefa) {
     const tarefaExistente = await prisma.tarefa.findFirst({
       where: {
         nome: data.nome,
@@ -41,7 +41,7 @@ class TarefasService {
     return tarefasRepository.updateTarefa(id, data);
   }
 
-  async changeOrdemApresentacaoTarefa(id: number, ordemApresentacao: number) {
+  async changeOrdemApresentacaoTarefa(id: string, ordemApresentacao: number) {
     return tarefasRepository.changeOrdemApresentacaoTarefa(
       id,
       ordemApresentacao

@@ -6,7 +6,7 @@ import { useListaTarefas } from "@/hooks/useListaTarefas";
 
 type FormViewProps = ReturnType<typeof useFormModel> & {
   setOpenDialog: Dispatch<SetStateAction<boolean>>;
-  id: number;
+  id: string;
 };
 
 export const FormEditarTarefaView = ({

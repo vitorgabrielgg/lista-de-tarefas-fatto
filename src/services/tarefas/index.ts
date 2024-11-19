@@ -21,13 +21,13 @@ export class TarefasRequestService {
     return data;
   }
 
-  static async deleteTarefa(id: number) {
+  static async deleteTarefa(id: string) {
     await fetch(`api/tarefas/${id}`, {
       method: "DELETE",
     });
   }
 
-  static async updateTarefa(id: number, params: ITarefa) {
+  static async updateTarefa(id: string, params: ITarefa) {
     await fetch(`api/tarefas/${id}`, {
       method: "PUT",
       headers: {
@@ -38,7 +38,7 @@ export class TarefasRequestService {
   }
 
   static async changeOrdemApresentacaoTarefa(
-    id: number,
+    id: string,
     ordemApresentacao: number
   ) {
     const res = await fetch(`api/tarefas/${id}`, {

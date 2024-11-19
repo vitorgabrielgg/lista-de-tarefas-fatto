@@ -5,10 +5,10 @@ type TarefasStore = {
   tarefas: ITarefaItem[];
   setTarefas: (tarefas: ITarefaItem[]) => void;
   addTarefas: (tarefa: ITarefaItem) => void;
-  deleteTarefa: (id: number) => void;
-  updateTarefa: (id: number, tarefa: ITarefa) => void;
+  deleteTarefa: (id: string) => void;
+  updateTarefa: (id: string, tarefa: ITarefa) => void;
   changeOrdemApresentacaoTarefa: (
-    id: number,
+    id: string,
     ordemApresentacao: number
   ) => void;
 };

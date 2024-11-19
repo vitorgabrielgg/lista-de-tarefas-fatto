@@ -4,7 +4,10 @@ import prisma from "../../../../db";
 class TarefasRepository {
   async create(data: ITarefa) {
     const tarefa = await prisma.tarefa.create({
-      data,
+      data: {
+        ...data,
+        ordemApresentacao: data.ordemApresentacao!,
+      },
     });
 
     return tarefa;
@@ -16,7 +19,7 @@ class TarefasRepository {
     return tarefas;
   }
 
-  async deleteTarefa(id: number) {
+  async deleteTarefa(id: string) {
     await prisma.tarefa.delete({
       where: {
         id,
@@ -24,7 +27,7 @@ class TarefasRepository {
     });
   }
 
-  async updateTarefa(id: number, data: ITarefa) {
+  async updateTarefa(id: string, data: ITarefa) {
     await prisma.tarefa.update({
       where: {
         id,
@@ -33,7 +36,7 @@ class TarefasRepository {
     });
   }
 
-  async changeOrdemApresentacaoTarefa(id: number, ordemApresentacao: number) {
+  async changeOrdemApresentacaoTarefa(id: string, ordemApresentacao: number) {
     await prisma.tarefa.update({
       where: {
         id,
