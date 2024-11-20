@@ -1,5 +1,5 @@
 export interface IParams {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
