@@ -2,6 +2,7 @@ import { ITarefa } from "@/@types";
 import { TarefasRequestService } from "@/services/tarefas";
 import { useTarefasStore } from "@/store/useTarefasStore";
 import { useCallback } from "react";
+import { useToast } from "./use-toast";
 
 export const useListaTarefas = () => {
   const {
@@ -13,6 +14,8 @@ export const useListaTarefas = () => {
     updateTarefa,
   } = useTarefasStore();
 
+  const { handleToast } = useToast();
+
   const listTarefas = useCallback(async () => {
     const res = await TarefasRequestService.getTarefas();
     setTarefas(res);
@@ -20,7 +23,12 @@ export const useListaTarefas = () => {
 
   const createTarefa = async (data: ITarefa) => {
     const res = await TarefasRequestService.postTarefa(data);
-    addTarefas(res);
+
+    if (res.error) {
+      handleToast("error", res.error);
+    } else {
+      addTarefas(res);
+    }
   };
 
   const removeTarefa = async (id: string) => {

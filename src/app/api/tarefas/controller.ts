@@ -6,9 +6,15 @@ const tarefasService = new TarefasService();
 
 class TarefasController {
   async create(req: NextRequest) {
-    const data = await req.json();
-    const response = await tarefasService.create(data);
-    return NextResponse.json(response);
+    try {
+      const data = await req.json();
+      const response = await tarefasService.create(data);
+      return NextResponse.json(response);
+    } catch (error) {
+      if (error instanceof Error) {
+        return NextResponse.json({ error: error.message });
+      }
+    }
   }
 
   async getAll() {
