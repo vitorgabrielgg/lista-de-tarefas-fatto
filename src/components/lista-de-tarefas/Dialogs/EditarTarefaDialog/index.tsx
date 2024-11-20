@@ -26,7 +26,7 @@ export const EditarTarefaDialog = ({ id }: EditarTarefaDialogProps) => {
 
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-      <DialogTrigger className="h-5 min-[450px]:h-6">
+      <DialogTrigger asChild className="h-5 min-[450px]:h-6">
         <ActionButton
           Icon={Pencil2Icon}
           className="w-5 h-5 min-[450px]:w-6 min-[450px]:h-6"

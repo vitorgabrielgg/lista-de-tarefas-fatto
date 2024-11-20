@@ -23,7 +23,7 @@ export const DeleteTarefaDialog = ({ id }: DeleteTarefaDialogProps) => {
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="h-6 min-[450px]:h-7">
+      <AlertDialogTrigger asChild className="h-6 min-[450px]:h-7">
         <ActionButton
           Icon={TrashIcon}
           className="w-6 h-6 min-[450px]:w-7 min-[450px]:h-7"
