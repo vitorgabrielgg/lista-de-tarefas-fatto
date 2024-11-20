@@ -1,2 +1,2 @@
-export * from "./lista-de-tarefas/Formulario/FormularioIncluirTarefa";
-export * from "./lista-de-tarefas/ListaDeTarefas";
+export * from "./Formulario/FormularioIncluirTarefa";
+export * from "./ListaDeTarefas";
