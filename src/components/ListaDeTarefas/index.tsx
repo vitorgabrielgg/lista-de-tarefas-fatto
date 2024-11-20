@@ -3,6 +3,7 @@
 import { useListaTarefas } from "@/hooks/useListaTarefas";
 import { useEffect, useState } from "react";
 import { TarefaItem } from "../TarefaItem";
+import { Loading } from "../Loading";
 
 export const ListaDeTarefas = () => {
   const { tarefas, listTarefas } = useListaTarefas();
@@ -20,7 +21,7 @@ export const ListaDeTarefas = () => {
   return (
     <section className="px-5">
       {loading ? (
-        "Loading..."
+        <Loading />
       ) : (
         <div className="flex flex-col gap-4">
           {tarefasOrdenadas.map((tarefa, index) => (
