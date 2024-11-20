@@ -37,10 +37,14 @@ export const useListaTarefas = () => {
   };
 
   const editTarefa = async (id: string, data: ITarefa) => {
-    await TarefasRequestService.updateTarefa(id, data);
+    const res = await TarefasRequestService.updateTarefa(id, data);
 
-    if (!tarefas.filter((tarefa) => tarefa.nome === data.nome).length) {
-      updateTarefa(id, data);
+    if (res.error) {
+      handleToast("error", res.error);
+    } else {
+      if (!tarefas.filter((tarefa) => tarefa.nome === data.nome).length) {
+        updateTarefa(id, data);
+      }
     }
   };
 

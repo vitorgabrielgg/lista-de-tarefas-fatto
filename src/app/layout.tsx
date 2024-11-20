@@ -14,8 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className="bg-raw_umber">{children}</body>
-      <Toaster />
+      <body className="bg-raw_umber">
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

@@ -32,12 +32,18 @@ class TarefasController {
   }
 
   async updateTarefa(req: NextRequest, { params }: IParams) {
-    const { id } = await params;
-    const data = await req.json();
+    try {
+      const { id } = await params;
+      const data = await req.json();
 
-    await tarefasService.updateTarefa(id, data);
+      await tarefasService.updateTarefa(id, data);
 
-    return NextResponse.json("");
+      return NextResponse.json("");
+    } catch (error) {
+      if (error instanceof Error) {
+        return NextResponse.json({ error: error.message });
+      }
+    }
   }
 
   async changeOrdemApresentacaoTarefa(req: NextRequest, { params }: IParams) {

@@ -28,13 +28,17 @@ export class TarefasRequestService {
   }
 
   static async updateTarefa(id: string, params: ITarefa) {
-    await fetch(`api/tarefas/${id}`, {
+    const res = await fetch(`api/tarefas/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(params),
     });
+
+    const data = await res.json();
+
+    return data;
   }
 
   static async changeOrdemApresentacaoTarefa(
