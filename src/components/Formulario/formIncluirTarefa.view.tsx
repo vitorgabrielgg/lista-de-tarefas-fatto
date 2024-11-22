@@ -6,7 +6,6 @@ type FormViewProps = ReturnType<typeof useFormModel>;
 
 export const FormIncluirTarefaView = ({
   errors,
-  isSubmitting,
   handleSubmit,
   handleCreateTarefa,
   register,
@@ -43,7 +42,7 @@ export const FormIncluirTarefaView = ({
         />
 
         <Button className="bg-silver text-jet font-regular min-[500px]:w-5/12 hover:bg-jet hover:text-silver transition-colors">
-          {isSubmitting ? "Loading..." : "Incluir tarefa"}
+          Incluir tarefa
         </Button>
       </form>
     </section>

@@ -9,7 +9,7 @@ import { ITarefa } from "@/@types";
 
 export const useFormModel = () => {
   const {
-    formState: { errors, isSubmitting },
+    formState: { errors },
     register,
     handleSubmit,
     reset,
@@ -35,7 +35,6 @@ export const useFormModel = () => {
 
   return {
     errors,
-    isSubmitting,
     handleSubmit,
     handleCreateTarefa,
     register,

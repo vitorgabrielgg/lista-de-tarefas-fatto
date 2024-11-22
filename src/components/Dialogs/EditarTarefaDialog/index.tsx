@@ -52,7 +52,7 @@ export const EditarTarefaDialog = ({ id }: EditarTarefaDialogProps) => {
             form="formEditarTarefa"
             className="bg-jet text-silver"
           >
-            {formModel.isSubmitting ? "Loading..." : "Salvar Mudanças"}
+            Salvar Mudanças
           </Button>
         </DialogFooter>
       </DialogContent>
