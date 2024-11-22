@@ -1,5 +1,5 @@
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 
 interface InputFieldProps {
@@ -31,6 +31,11 @@ export const InputField = ({
     setInputValue(value);
   }, [value]);
 
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+  };
+
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={name} className="font-medium text-jet">
@@ -45,7 +50,7 @@ export const InputField = ({
           type === "date" && "w-[140px]"
         }`}
         step="any"
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={handleChangeInput}
         value={value && inputValue}
       />
 
