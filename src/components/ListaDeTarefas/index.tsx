@@ -10,8 +10,12 @@ export const ListaDeTarefas = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    listTarefas();
-    setLoading(false);
+    async function fetchTarefas() {
+      await listTarefas();
+      setLoading(false);
+    }
+
+    fetchTarefas();
   }, [listTarefas]);
 
   const tarefasOrdenadas = tarefas.sort(
@@ -23,11 +27,19 @@ export const ListaDeTarefas = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="flex flex-col gap-4">
-          {tarefasOrdenadas.map((tarefa, index) => (
-            <TarefaItem key={tarefa.id} {...tarefa} index={index} />
-          ))}
-        </div>
+        <>
+          {!tarefasOrdenadas.length ? (
+            <p className="text-center text-jet font-medium">
+              A lista de tarefas está vazia.
+            </p>
+          ) : (
+            <div className="flex flex-col gap-4">
+              {tarefasOrdenadas.map((tarefa, index) => (
+                <TarefaItem key={tarefa.id} {...tarefa} index={index} />
+              ))}
+            </div>
+          )}
+        </>
       )}
     </section>
   );
