@@ -32,8 +32,8 @@ export const useListaTarefas = () => {
   };
 
   const removeTarefa = async (id: string) => {
-    await TarefasRequestService.deleteTarefa(id);
     deleteTarefa(id);
+    await TarefasRequestService.deleteTarefa(id);
   };
 
   const editTarefa = async (id: string, data: ITarefa) => {
