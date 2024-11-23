@@ -1,5 +1,5 @@
 import { Input } from "@/components/ui/input";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 
 interface InputFieldProps {
@@ -25,11 +25,9 @@ export const InputField = ({
   value,
   register,
 }: InputFieldProps) => {
-  const [inputValue, setInputValue] = useState<string | number>();
-
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
+  const [inputValue, setInputValue] = useState<string | number>(
+    value ? value : ""
+  );
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
